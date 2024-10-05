@@ -1,10 +1,9 @@
 import http from "node:http";
 
 const server = http.createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/plain" });
+  const { method, url } = req;
+
   res.end("Hello, World!\n");
 });
-
-server.get("/tarefas", (req, res) => {});
 
 server.listen(8080);
