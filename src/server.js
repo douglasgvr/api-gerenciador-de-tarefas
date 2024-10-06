@@ -1,9 +1,16 @@
 import http from "node:http";
+import { routes } from "./routes.js";
 
 const server = http.createServer((req, res) => {
   const { method, url } = req;
 
-  res.end("Hello, World!\n");
+  const route = routes.find((route) => {
+    return route.method === method && route.patch === url;
+  });
+
+  if (route) {
+    return route.handler(req, res);
+  }
 });
 
 server.listen(8080);
