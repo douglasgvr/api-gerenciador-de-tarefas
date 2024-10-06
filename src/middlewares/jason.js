@@ -11,10 +11,10 @@ export async function json(req, res) {
       try {
         req.body = JSON.parse(Buffer.concat(buffers).toString());
       } catch (error) {
-        req.body = null; // JSON inválido
+        req.body = null;
       }
       res.setHeader("Content-Type", "application/json");
-      resolve(); // Resolve a Promise para indicar que o processamento terminou
+      resolve();
     });
   });
 }

@@ -12,16 +12,16 @@ export const routes = [
           title,
           description,
         });
-        res.writeHead(201); // Status 201 Created
+        res.writeHead(201);
         return res.end(
           JSON.stringify({ message: "Tarefa criada com sucesso" })
         );
         // biome-ignore lint/style/noUselessElse: <explanation>
       } else {
-        res.writeHead(400); // Status 400 Bad Request
+        res.writeHead(400);
         return res.end(
           JSON.stringify({
-            error: "Campos title e description são obrigatórios",
+            error: "Campos title e descriçao são obrigatórios",
           })
         );
       }
